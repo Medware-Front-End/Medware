@@ -139,9 +139,11 @@ class _PatientChoosedState extends State<PatientChoosed> {
         color: primaryColor,
               child: SingleChildScrollView(
                  physics: const AlwaysScrollableScrollPhysics(
-            parent: BouncingScrollPhysics(),
-          ),
-                child: Column(mainAxisSize: MainAxisSize.max, children: [
+            parent: BouncingScrollPhysics(),),
+                child: Column(
+                  
+                  mainAxisSize: MainAxisSize.max, 
+                  children: [
                   Column(
                     children: [
                       Padding(
@@ -187,50 +189,55 @@ class _PatientChoosedState extends State<PatientChoosed> {
                   ),
                   Column(
                     children: <Widget>[
-                      ListView.builder(
-                        physics: ScrollPhysics(parent: null),
-                        shrinkWrap: true,
-                        itemCount: userLists.length,
-                        itemBuilder: (context, i) {
-                          return Container(
-                            margin: EdgeInsetsDirectional.fromSTEB(size.width*0.03,size.width*0.04,size.width*0.03,0),
-                            decoration: BoxDecoration(
-                              color: quaternaryColor,
-                              borderRadius:
-                                  BorderRadius.circular(size.width * 0.03),
-                            ),
-                            child: GestureDetector(
-                              child: ListTile(
-                                onTap: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => AppointmentDisplay(
-                                        scheduleId: widget.getId(),
-                                        appointmentDate: widget.date,
-                                        appointmentTimeStart: widget.startTime,
-                                        appointmentTimeEnd: widget.finishTime,
-                                        patientFirstName:
-                                            userLists[i].patientFirstName,
-                                        patientMiddleName:
-                                            userLists[i].patientMiddleName,
-                                        patientLastName:
-                                            userLists[i].patientLastName,
-                                        patientNationalId:
-                                            userLists[i].patientNationalId,
-                                      ),
-                                    ),
-                                  );
-                                },
-                                title: Text(
-                                    "${userLists[i].patientFirstName} ${userLists[i].patientMiddleName} ${userLists[i].patientLastName}"),
-                                trailing: Icon(Icons.arrow_forward_ios),
-                                leading: Icon(Icons.account_circle_rounded,
-                                    size: size.width * 0.08),
+                      
+                      Container(
+                        height: size.height,
+                        child: ListView.builder(
+                          physics: ScrollPhysics(parent: null),
+                          shrinkWrap: true,
+                          itemCount: userLists.length,
+                          itemBuilder: (context, i) {
+                            return Container(
+                              margin: EdgeInsetsDirectional.fromSTEB(size.width*0.03,size.width*0.04,size.width*0.03,0),
+                              decoration: BoxDecoration(
+                                color: quaternaryColor,
+                                borderRadius:
+                                    BorderRadius.circular(size.width * 0.03),
                               ),
-                            ),
-                          );
-                        },
+                              child: GestureDetector(
+                                child: ListTile(
+                                  
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => AppointmentDisplay(
+                                          scheduleId: widget.getId(),
+                                          appointmentDate: widget.date,
+                                          appointmentTimeStart: widget.startTime,
+                                          appointmentTimeEnd: widget.finishTime,
+                                          patientFirstName:
+                                              userLists[i].patientFirstName,
+                                          patientMiddleName:
+                                              userLists[i].patientMiddleName,
+                                          patientLastName:
+                                              userLists[i].patientLastName,
+                                          patientNationalId:
+                                              userLists[i].patientNationalId,
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                  title: Text(
+                                      "${userLists[i].patientFirstName} ${userLists[i].patientMiddleName} ${userLists[i].patientLastName}"),
+                                  trailing: Icon(Icons.arrow_forward_ios),
+                                  leading: Icon(Icons.account_circle_rounded,
+                                      size: size.width * 0.08),
+                                ),
+                              ),
+                            );
+                          },
+                        ),
                       ),
                     ],
                   ),

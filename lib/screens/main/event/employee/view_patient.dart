@@ -173,6 +173,7 @@ class _PatientViewState extends State<PatientView> {
                       shrinkWrap: true,
                       itemCount: userLists.length,
                       itemBuilder: (context, i) {
+                        if (userLists.length >0){
                         return Container(
                           margin: EdgeInsetsDirectional.fromSTEB(size.width*0.03,size.width*0.04,size.width*0.03,0),
                           decoration: BoxDecoration(
@@ -188,7 +189,11 @@ class _PatientViewState extends State<PatientView> {
                             size: size.width * 0.08),
                           ),
                         );
-                      }),
+                      }
+                      else {
+                        return Text("ไม่มีคนไข้ในขณะนี้");
+                      }}
+                      ),
                 ],
               )
             ],
